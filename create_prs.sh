@@ -8,19 +8,19 @@ export GIT_COMMITTER_NAME="cryphorix"
 export GIT_COMMITTER_EMAIL="cryphorix@users.noreply.github.com"
 
 # Define co-authors' names and emails
-# Using GitHub noreply emails ensures GitHub recognizes the co-authorship
+# Use the duck.com email since it worked for PRs #31, #40, #55
 COAUTHOR_1_NAME="cryphorix"
-COAUTHOR_1_EMAIL="cryphorix@users.noreply.github.com"
+COAUTHOR_1_EMAIL="cryphorix@riseup.net"
 
 COAUTHOR_2_NAME="corned-aloe"
-COAUTHOR_2_EMAIL="corned-aloe@users.noreply.github.com"
+COAUTHOR_2_EMAIL="corned-aloe-footer@duck.com"
 
 # Ensure we're on the dev branch
 git checkout dev
 
-# Loop to create and merge pull requests (creating 50 more to ensure we reach 48 recognized)
-# Start from 49 since we already have 48 PRs, but need more recognized co-authorships
-for i in {49..98}
+# Loop to create and merge pull requests  
+# Need 45 more recognized PRs (we have 3, need 48 total for Gold)
+for i in {99..146}
 do
     echo "Processing change #$i..."
     
@@ -30,11 +30,10 @@ do
     # Add changes to git
     git add .envexample
 
-    # Commit with co-authors using a here document
+    # Commit with corned-aloe as co-author (don't include yourself as co-author when you're the author)
     git commit -F - <<EOF
 Update .envexample for change #$i.
 
-Co-authored-by: $COAUTHOR_1_NAME <$COAUTHOR_1_EMAIL>
 Co-authored-by: $COAUTHOR_2_NAME <$COAUTHOR_2_EMAIL>
 EOF
 
