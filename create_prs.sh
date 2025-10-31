@@ -11,11 +11,8 @@ export GIT_COMMITTER_EMAIL="cryphorix@users.noreply.github.com"
 COAUTHOR_1_NAME="cryphorix"
 COAUTHOR_1_EMAIL="cryphorix@riseup.net"
 
-COAUTHOR_2_NAME="Co-Author 2"
+COAUTHOR_2_NAME="corned-aloe"
 COAUTHOR_2_EMAIL="corned-aloe-footer@duck.com"
-
-COAUTHOR_3_NAME="Co-Author 3"
-COAUTHOR_3_EMAIL="pecan-ploy-cupped@duck.com"
 
 # Ensure we're on the dev branch
 git checkout dev
@@ -31,13 +28,12 @@ do
     # Add changes to git
     git add .envexample
 
-    # Commit with multiple co-authors using a here document
+    # Commit with co-authors using a here document
     git commit -F - <<EOF
 Update .envexample for change #$i.
 
 Co-authored-by: $COAUTHOR_1_NAME <$COAUTHOR_1_EMAIL>
 Co-authored-by: $COAUTHOR_2_NAME <$COAUTHOR_2_EMAIL>
-Co-authored-by: $COAUTHOR_3_NAME <$COAUTHOR_3_EMAIL>
 EOF
 
     # Push changes to the dev branch
