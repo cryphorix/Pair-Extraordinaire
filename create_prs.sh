@@ -8,17 +8,19 @@ export GIT_COMMITTER_NAME="cryphorix"
 export GIT_COMMITTER_EMAIL="cryphorix@users.noreply.github.com"
 
 # Define co-authors' names and emails
+# Using GitHub noreply emails ensures GitHub recognizes the co-authorship
 COAUTHOR_1_NAME="cryphorix"
-COAUTHOR_1_EMAIL="cryphorix@riseup.net"
+COAUTHOR_1_EMAIL="cryphorix@users.noreply.github.com"
 
 COAUTHOR_2_NAME="corned-aloe"
-COAUTHOR_2_EMAIL="corned-aloe-footer@duck.com"
+COAUTHOR_2_EMAIL="corned-aloe@users.noreply.github.com"
 
 # Ensure we're on the dev branch
 git checkout dev
 
-# Loop to create and merge pull requests 48 times (for the badge)
-for i in {1..48}
+# Loop to create and merge pull requests (creating 50 more to ensure we reach 48 recognized)
+# Start from 49 since we already have 48 PRs, but need more recognized co-authorships
+for i in {49..98}
 do
     echo "Processing change #$i..."
     
